@@ -169,7 +169,9 @@
     <Content Include="Content\Css\style.css" />
     <Content Include="Content\readme.txt" />
     <Content Include="Oak\ReleaseNotes.txt" />
+    <Content Include="rake-dot-net-usage.txt" />
     <Content Include="robots.txt" />
+    <Content Include="specwatchr-usage.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
