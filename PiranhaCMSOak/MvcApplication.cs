@@ -14,7 +14,7 @@ namespace PiranhaCMSOak
             DebugBootStrap.Init(this);
         }
 
-        protected void Application_Start()
+        protected void _Application_Start()
         {
             BootStrap.Init();
         }
