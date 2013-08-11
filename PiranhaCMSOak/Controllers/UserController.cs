@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace PiranhaCMSOak.Controllers
 {
-    public class UserController : BaseController
+    public abstract class UserController : BaseController
     {
         // Model for sending user information. You can add more information
         // if you want, like name and so on.
@@ -27,6 +27,8 @@ namespace PiranhaCMSOak.Controllers
             public string Password { get; set; }
         }
 
+        protected abstract Guid GetUserGroupId();
+
         [HttpPost]
         public ActionResult Create(CreateModel m)
         {
@@ -42,7 +44,7 @@ namespace PiranhaCMSOak.Controllers
                     {
                         Login = m.Login,
                         Email = m.Email,
-                        GroupId = new Guid("3e221612-67fe-42ef-9869-9795b3315045")  // Here you need to add the id to a custom group for front end users.
+                        GroupId = GetUserGroupId()
                     };
                     if (!String.IsNullOrEmpty(m.Password))
                     {
