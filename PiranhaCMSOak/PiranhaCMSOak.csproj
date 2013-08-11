@@ -40,8 +40,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\oak.2.6.5\lib\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Piranha">
       <HintPath>..\packages\PiranhaCMS.Core.2.1.2\lib\net45\Piranha.dll</HintPath>
@@ -145,6 +146,7 @@
     <None Include="packages.config" />
     <None Include="Piranha.LICENSE.md" />
     <None Include="RazorGenerator.LICENSE.md" />
+    <None Include="tools\Install.ps1" />
     <None Include="Views\Page\Index.cshtml" />
     <None Include="Views\Post\Index.cshtml" />
     <None Include="Views\Shared\Sidebar.cshtml" />
@@ -165,6 +167,7 @@
     <Content Include="Areas\Manager\Views\Extensions\index.html" />
     <Content Include="Content\Css\bootstrap.min.css" />
     <Content Include="Content\Css\style.css" />
+    <Content Include="Content\readme.txt" />
     <Content Include="Oak\ReleaseNotes.txt" />
     <Content Include="robots.txt" />
   </ItemGroup>
