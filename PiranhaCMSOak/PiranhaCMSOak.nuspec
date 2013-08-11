@@ -8,7 +8,7 @@
     <owners>$author$</owners>
     <licenseUrl>http://www.gnu.org/licenses/lgpl.html</licenseUrl>
     <projectUrl>http://gassumo.com/PiranhaCMSOak</projectUrl>
-    <!-- iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl -->
+    <iconUrl>https://www.naseukoly.cz/media/5a5e879b-4cbb-4efb-8c5e-453b5984be3f</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>Initial release.</releaseNotes>

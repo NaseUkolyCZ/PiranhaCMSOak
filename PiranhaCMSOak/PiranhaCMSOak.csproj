@@ -145,6 +145,7 @@
     <None Include="App_Code\OakForm.cshtml" />
     <None Include="packages.config" />
     <None Include="Piranha.LICENSE.md" />
+    <None Include="PiranhaCMSOak.nuspec" />
     <None Include="RazorGenerator.LICENSE.md" />
     <None Include="tools\Install.ps1" />
     <None Include="Views\Page\Index.cshtml" />
