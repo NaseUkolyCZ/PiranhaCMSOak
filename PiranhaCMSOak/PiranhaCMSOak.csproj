@@ -152,6 +152,7 @@
     <None Include="Views\Shared\Sidebar.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
+    <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
