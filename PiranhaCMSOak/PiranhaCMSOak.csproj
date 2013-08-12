@@ -109,7 +109,6 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
-    <Compile Include="Controllers\SeedController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserRegistration.cs" />
@@ -163,9 +162,7 @@
     <Content Include="App_Data\Cache\index.html" />
     <Content Include="App_Data\Cache\Uploads\index.html" />
     <Content Include="App_Data\Content\index.html" />
-    <Content Include="App_Data\Piranha.sdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="App_Data\Piranha.sdf" />
     <Content Include="App_Data\Uploads\index.html" />
     <Content Include="Areas\Manager\Content\Css\Editor.css" />
     <Content Include="Areas\Manager\Views\Extensions\index.html" />
