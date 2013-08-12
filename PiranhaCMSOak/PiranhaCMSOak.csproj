@@ -140,6 +140,7 @@
     <Compile Include="Repositories\Users.cs" />
     <Compile Include="Support\CorrectServerFilter.cs" />
     <Compile Include="Support\MyRequireHttpsAttribute.cs" />
+    <Compile Include="Support\Schema.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
