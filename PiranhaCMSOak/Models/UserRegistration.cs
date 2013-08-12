@@ -61,9 +61,6 @@ namespace PiranhaCMSOak.Models
         {
             _.Password = Encrypt(_.Password);
 
-            var custId = new { Name = this._.FirstName + " " + this._.LastName }.InsertInto("Customers");
-            this._.CustomerId = custId;
-
             users.Insert(this.Exclude("PasswordConfirmation", "Login"));
         }
 

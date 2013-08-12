@@ -25,7 +25,9 @@ namespace PiranhaCMSOak.Controllers
 
             SetSession = (key, value) => HttpContext.Session[key] = value;
 
-            Email = () => base.User.Identity.Name;
+            users = new Users();
+
+            Email = () => base.User.GetProfile().Email;
         }
 
         public new JsonResult Json(object model)
