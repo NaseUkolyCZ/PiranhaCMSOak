@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("PiranhaCMSOak")]
-[assembly: AssemblyDescription("Quickly create beutiful web applications on the latest technologies: Microsoft .NET 4.5, ASP.NET MVC 4, Oak and Piranha CMS")]
+[assembly: AssemblyDescription("Quickly create beautiful web applications on the latest technologies: Microsoft .NET 4.5, ASP.NET MVC 4, Oak and Piranha CMS")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("NašeÚkoly.CZ s.r.o.")]
 [assembly: AssemblyProduct("PiranhaCMSOak")]
