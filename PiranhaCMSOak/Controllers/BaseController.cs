@@ -40,6 +40,11 @@ namespace PiranhaCMSOak.Controllers
             return users.ForEmail(Email());
         }
 
+        public virtual System.Globalization.CultureInfo GetInvariantCulture()
+        {
+            return System.Globalization.CultureInfo.InvariantCulture;
+        }
+
         // http://afana.me/post/aspnet-mvc-internationalization-part-2.aspx
         protected override void ExecuteCore()
         {
@@ -67,12 +72,12 @@ namespace PiranhaCMSOak.Controllers
                 }
                 catch (System.Globalization.CultureNotFoundException)
                 {
-                    ci = System.Globalization.CultureInfo.InvariantCulture;
+                    ci = GetInvariantCulture();
                 }
             }
             else
             {
-                ci = System.Globalization.CultureInfo.InvariantCulture;
+                ci = GetInvariantCulture();
             }
 
             System.Threading.Thread.CurrentThread.CurrentCulture = ci;
