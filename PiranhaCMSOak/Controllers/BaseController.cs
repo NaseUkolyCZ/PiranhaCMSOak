@@ -69,6 +69,8 @@ namespace PiranhaCMSOak.Controllers
                     ci = new System.Globalization.CultureInfo(userLanguages[0]);
                     // patch cs&sk -> cs-CZ issue
                     if (ci.LCID == 5 || ci.LCID == 1051) { ci = new System.Globalization.CultureInfo("cs-CZ"); }
+                    // patch en -> en-US
+                    if (ci.LCID == 9) { ci = new System.Globalization.CultureInfo("en-US"); }
                 }
                 catch (System.Globalization.CultureNotFoundException)
                 {
