@@ -2,7 +2,9 @@
 using PiranhaCMSOak.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -45,6 +47,32 @@ namespace PiranhaCMSOak.Controllers
             return System.Globalization.CultureInfo.InvariantCulture;
         }
 
+        public CultureInfo GetCurrentUserCI(string[] userLanguages)
+        {
+            System.Globalization.CultureInfo ci;
+            if (userLanguages != null && userLanguages.Length > 0)
+            {
+                try
+                {
+                    ci = new CultureInfo(userLanguages[0]);
+                    // patch cs&sk -> cs-CZ issue
+                    if (ci.LCID == 5 || ci.LCID == 1051) { ci = new CultureInfo("cs-CZ"); }
+                    // patch en -> en-US
+                    if (ci.LCID == 9) { ci = new CultureInfo("en-US"); }
+                }
+                catch (CultureNotFoundException)
+                {
+                    ci = GetInvariantCulture();
+                }
+            }
+            else
+            {
+                ci = GetInvariantCulture();
+            }
+
+            return ci;
+        }
+
         // http://afana.me/post/aspnet-mvc-internationalization-part-2.aspx
         protected override void ExecuteCore()
         {
@@ -61,29 +89,11 @@ namespace PiranhaCMSOak.Controllers
             {
                 userLanguages = new string[] { sessionLanguage };
             }
-            System.Globalization.CultureInfo ci;
-            if (userLanguages.Length > 0)
-            {
-                try
-                {
-                    ci = new System.Globalization.CultureInfo(userLanguages[0]);
-                    // patch cs&sk -> cs-CZ issue
-                    if (ci.LCID == 5 || ci.LCID == 1051) { ci = new System.Globalization.CultureInfo("cs-CZ"); }
-                    // patch en -> en-US
-                    if (ci.LCID == 9) { ci = new System.Globalization.CultureInfo("en-US"); }
-                }
-                catch (System.Globalization.CultureNotFoundException)
-                {
-                    ci = GetInvariantCulture();
-                }
-            }
-            else
-            {
-                ci = GetInvariantCulture();
-            }
 
-            System.Threading.Thread.CurrentThread.CurrentCulture = ci;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = ci;
+            CultureInfo ci = GetCurrentUserCI(userLanguages);
+
+            Thread.CurrentThread.CurrentCulture = ci;
+            Thread.CurrentThread.CurrentUICulture = ci;
 
             base.ExecuteCore();
         }
