@@ -74,7 +74,7 @@ namespace PiranhaCMSOak.Controllers
         }
 
         // http://afana.me/post/aspnet-mvc-internationalization-part-2.aspx
-        protected override void ExecuteCore()
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             string[] userLanguages;
             string sessionLanguage = Request["Language"] as string;
@@ -95,7 +95,7 @@ namespace PiranhaCMSOak.Controllers
             Thread.CurrentThread.CurrentCulture = ci;
             Thread.CurrentThread.CurrentUICulture = ci;
 
-            base.ExecuteCore();
+            base.OnActionExecuting(filterContext);
         }
     }
 }
