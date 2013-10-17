@@ -140,6 +140,8 @@
     <Compile Include="Oak\Validation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Users.cs" />
+    <Compile Include="Support\Ext.cs" />
+    <Compile Include="Support\SimpleAspNetTimer.cs" />
     <Compile Include="Support\CorrectServerFilter.cs" />
     <Compile Include="Support\JobHost.cs" />
     <Compile Include="Support\MyRequireHttpsAttribute.cs" />

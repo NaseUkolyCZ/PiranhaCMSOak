@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B28643
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiranhaCMSOak.Tests", "PiranhaCMSOak.Tests\PiranhaCMSOak.Tests.csproj", "{9327C7C3-2EE0-4C1A-92CD-628754299EBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiranhaCMSOak.WebTest", "PiranhaCMSOak.WebTest\PiranhaCMSOak.WebTest.csproj", "{110C327A-6FDB-4C55-8F65-BD74AA87116A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{9327C7C3-2EE0-4C1A-92CD-628754299EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9327C7C3-2EE0-4C1A-92CD-628754299EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9327C7C3-2EE0-4C1A-92CD-628754299EBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{110C327A-6FDB-4C55-8F65-BD74AA87116A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{110C327A-6FDB-4C55-8F65-BD74AA87116A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{110C327A-6FDB-4C55-8F65-BD74AA87116A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{110C327A-6FDB-4C55-8F65-BD74AA87116A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

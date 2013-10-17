@@ -49,6 +49,7 @@
     <Compile Include="DebuggerShim.cs" />
     <Compile Include="describe_BaseController.cs" />
     <Compile Include="describe_BaseControllerExtended.cs" />
+    <Compile Include="describe_Reflection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
