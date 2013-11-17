@@ -25,4 +25,14 @@ Piranha CMS Configuration
 11. Piranha CMS is installed, you may check the site clicking on the link below "My site" in manager
 12. You see the site running with "Welcome to Piranha - the fun, fast and lightweight framework for developing cms-based web applications with an extra bite."
 
+ASP.NET MVC Development with Oak
+--------------------------------
+1. Install PiranhaCMSOak using the Installation instructions
+2. Configure Piranha CMS using the steps in Piranha CMS Configuration section
+3. Open Global.asax.cs and inherit MvcApplication from PiranhaCMSOak.MvcApplication; also type _Application_Start(); at the end of Application_Start() method
+4. Start the web application and in the browser navigate to e.g. /Test path. You should see Oak error screen "The controller for path '/Test' was not found or does not implement IController."
+5. Add the TestController to Controllers folder
+6. Run the application, go to /Test and get the error message about missing view
+7. Create Test folder under Views and add Index.cshtml view to the Test folder
+8. Now if you navigate to the /Test path, you get your Index.cshtml view rendered in the Piranha CMS
 
