@@ -29,7 +29,7 @@ ASP.NET MVC Development with Oak
 --------------------------------
 1. Install PiranhaCMSOak using the Installation instructions
 2. Configure Piranha CMS using the steps in Piranha CMS Configuration section
-3. Open Global.asax.cs and inherit MvcApplication from PiranhaCMSOak.MvcApplication; also type _Application_Start(); at the end of Application_Start() method
+3. Open Global.asax.cs and inherit MvcApplication from PiranhaCMSOak.MvcApplication; also type base._Application_Start(); at the end of Application_Start() method (see http://www.slideshare.net/davidpodhola/konfigurace-frameworku-oak-v-piranha-cms-oak)
 4. Start the web application and in the browser navigate to e.g. /Test path. You should see Oak error screen "The controller for path '/Test' was not found or does not implement IController."
 5. Add the TestController to Controllers folder
 6. Run the application, go to /Test and get the error message about missing view
