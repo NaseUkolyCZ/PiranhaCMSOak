@@ -46,14 +46,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\oak.2.6.6\lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Piranha">
-      <HintPath>..\packages\PiranhaCMS.Core.2.1.2\lib\net45\Piranha.dll</HintPath>
+    <Reference Include="Piranha, Version=2.1.4947.11991, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PiranhaCMS.Core.2.1.5\lib\net45\Piranha.dll</HintPath>
     </Reference>
-    <Reference Include="Piranha.Mvc">
-      <HintPath>..\packages\PiranhaCMS.Mvc.2.1.2\lib\net45\Piranha.Mvc.dll</HintPath>
+    <Reference Include="Piranha.Mvc, Version=2.1.4947.11991, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PiranhaCMS.Mvc.2.1.5\lib\net45\Piranha.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="RazorGenerator.Mvc">
-      <HintPath>..\packages\PiranhaCMS.Core.2.1.2\lib\net45\RazorGenerator.Mvc.dll</HintPath>
+    <Reference Include="RazorGenerator.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PiranhaCMS.Core.2.1.5\lib\net45\RazorGenerator.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
