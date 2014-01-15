@@ -205,10 +205,24 @@ namespace Oak
 
             if (applicable != null) recos.Add(applicable.GetRecommendation(error));
 
-            if (StackTracePreview.CanPreview(Bullet.ScrubStackTrace(error.ToString()))) recos.Add(StackTracePreview.Instructions());
+            if (StackTracePreview.CanPreview(Bullet.ScrubStackTrace(error == null ? string.Empty : error.ToString()))) recos.Add(StackTracePreview.Instructions());
 
-            recos.Add(UnAlteredStackTrace.Body(error.ToString()));
+            recos.Add(UnAlteredStackTrace.Body(error == null ? string.Empty : error.ToString()));
 
+            if (error is ReflectionTypeLoadException)
+            {        
+                foreach (var item in ((ReflectionTypeLoadException)error).LoaderExceptions)
+                {
+                    recos.Add("LoaderExceptions:" + item.Message.ToString());                    
+                }
+            }
+            if (error != null && error.InnerException is ReflectionTypeLoadException)
+            {
+                foreach (var item in ((ReflectionTypeLoadException)error.InnerException).LoaderExceptions)
+                {
+                    recos.Add("LoaderExceptions:" + item.Message.ToString());
+                }
+            }
             WriteRecommendation(mvcApplication, recos);
         }
 
@@ -254,8 +268,8 @@ namespace Oak
             Note: This error can also be seen in the IISExpress console.  Running <pre style=""display: inline; padding: 0px"">rake server</pre> starts up a IIS Express minimized with the following icon:
         </div>
     </div>
-</div>".Replace("{message}", System.Web.HttpUtility.HtmlEncode(error.Message))
-       .Replace("{scrubbedStackTrace}", Bullet.ScrubStackTrace(error.ToString()));
+</div>".Replace("{message}", System.Web.HttpUtility.HtmlEncode(error == null ? string.Empty : error.Message))
+       .Replace("{scrubbedStackTrace}", Bullet.ScrubStackTrace(error == null ? string.Empty : error.ToString()));
         }
 
         static bool disableInefficientQueryDetection = false;
@@ -348,7 +362,7 @@ namespace Oak
     {
         public override bool CanRecommend(Exception e)
         {
-            return e.ToString().Contains("Views/Home/Index") && HasEmptyProject();
+            return e != null && e.ToString().Contains("Views/Home/Index") && HasEmptyProject();
         }
 
         public override string GetRecommendation(Exception e)
@@ -470,7 +484,7 @@ Create an Index.cshtml page for the Index action and add the following code ther
     {
         public override bool CanRecommend(Exception e)
         {
-            return e is SqlException && e.ToString().Contains("A network-related or instance-specific error occurred");
+            return e != null && e is SqlException && e.ToString().Contains("A network-related or instance-specific error occurred");
         }
 
         public override string GetRecommendation(Exception e)
@@ -492,7 +506,7 @@ Create an Index.cshtml page for the Index action and add the following code ther
     {
         public override bool CanRecommend(Exception e)
         {
-            return e is SqlException && e.ToString().Contains("Login failed for user");
+            return e != null && e is SqlException && e.ToString().Contains("Login failed for user");
         }
 
         public override string GetRecommendation(Exception e)
@@ -514,7 +528,7 @@ Create an Index.cshtml page for the Index action and add the following code ther
     {
         public override bool CanRecommend(Exception e)
         {
-            return e is SqlException && e.ToString().Contains("Cannot open database");
+            return e != null && e is SqlException && e.ToString().Contains("Cannot open database");
         }
 
         public override string GetRecommendation(Exception e)
@@ -539,7 +553,7 @@ Create an Index.cshtml page for the Index action and add the following code ther
     {
         public override bool CanRecommend(Exception e)
         {
-            return e is SqlException
+            return e != null && e is SqlException
                 && e.ToString().Contains("Invalid object name 'Blogs'.")
                 && HasEmptyProject();
         }
@@ -595,7 +609,7 @@ the script (the console window you use to execute this command must have ruby su
     {
         public override bool CanRecommend(Exception e)
         {
-            return e is SqlException && e.ToString().Contains("Invalid object name 'Comments'") && HasEmptyProject();
+            return e != null && e is SqlException && e.ToString().Contains("Invalid object name 'Comments'") && HasEmptyProject();
         }
 
         public override string GetRecommendation(Exception e)
@@ -662,7 +676,7 @@ the script (the console window you use to execute this command must have ruby su
     {
         public override bool CanRecommend(Exception e)
         {
-            return e is SqlException && e.ToString().Contains("Invalid object name");
+            return e != null && e is SqlException && e.ToString().Contains("Invalid object name");
         }
 
         public static string CreateTableRecommendationString()
@@ -741,7 +755,7 @@ You can then run this command to <strong>purge</strong> your database and regen 
     {
         public override bool CanRecommend(Exception e)
         {
-            return e.ToString().Contains("'Oak.Gemini' does not contain a definition for 'Comments'") && HasEmptyProject();
+            return e != null && e.ToString().Contains("'Oak.Gemini' does not contain a definition for 'Comments'") && HasEmptyProject();
         }
 
         public override string GetRecommendation(Exception e)
@@ -812,7 +826,7 @@ public class Blog : DynamicModel
     {
         public override bool CanRecommend(Exception e)
         {
-            return e.ToString().Contains("'Oak.Gemini' does not contain a definition for");
+            return e != null && e.ToString().Contains("'Oak.Gemini' does not contain a definition for");
         }
 
         public override string GetRecommendation(Exception e)
@@ -887,7 +901,7 @@ For more information on dynamic repository methods, take a look at
     {
         public override bool CanRecommend(Exception e)
         {
-            return e.ToString().Contains("Blog' does not contain a definition for 'IsValid'") && HasEmptyProject();
+            return e != null && e.ToString().Contains("Blog' does not contain a definition for 'IsValid'") && HasEmptyProject();
         }
 
         public override string GetRecommendation(Exception e)
@@ -926,7 +940,7 @@ In the case of the Hello World sample, the code above is how you would get rid o
     {
         public override bool CanRecommend(Exception e)
         {
-            return e.ToString().Contains("Blog' does not contain a definition for 'AddComment'") && HasEmptyProject();
+            return e != null && e.ToString().Contains("Blog' does not contain a definition for 'AddComment'") && HasEmptyProject();
         }
 
         public override string GetRecommendation(Exception e)
@@ -1007,7 +1021,7 @@ public ActionResult Index()
     {
         public override bool CanRecommend(Exception e)
         {
-            if (e.Message.Contains("Validation initialization failed for class ")) return true;
+            if (e != null && e.Message.Contains("Validation initialization failed for class ")) return true;
 
             return false;
         }
@@ -1044,6 +1058,7 @@ yield return new Length(""Title"") { Minimum = 1, ErrorMessage = new DynamicFunc
     {
         public override bool CanRecommend(Exception e)
         {
+            if (e == null) return false;
             if (!e.Message.Contains("does not contain a definition for")) return false;
 
             if (e.Message.Contains("Gemini")) return false;
@@ -1200,7 +1215,7 @@ Assert.IsTrue(commentAdded);
     {
         public override bool CanRecommend(Exception e)
         {
-            return e.Message.Contains("Invalid column name");
+            return e != null && e.Message.Contains("Invalid column name");
         }
 
         public override string GetRecommendation(Exception e)
@@ -1242,7 +1257,7 @@ You can see what the script looks like by running this command: <pre>rake export
     {
         public override bool CanRecommend(Exception e)
         {
-            return e is AssociationByConventionsException;
+            return e != null && e is AssociationByConventionsException;
         }
 
         public override string GetRecommendation(Exception e)
