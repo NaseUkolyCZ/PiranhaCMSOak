@@ -38,3 +38,6 @@ ASP.NET MVC Development with Oak
 7. Create Test folder under Views and add Index.cshtml view to the Test folder
 8. Now if you navigate to the /Test path, you get your Index.cshtml view rendered in the Piranha CMS
 
+If somethink goes really wrong
+--------------------------------
+Check log file at ~/App_Data/Logs/Log.txt
