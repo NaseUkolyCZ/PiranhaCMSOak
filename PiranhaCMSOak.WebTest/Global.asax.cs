@@ -13,11 +13,6 @@ namespace PiranhaCMSOak.WebTest
     // visit http://go.microsoft.com/?LinkId=9394801
     public class MvcApplication : System.Web.HttpApplication
     {
-        public void DoSomething()
-        {
-            var i = 0;
-        }
-
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -26,7 +21,6 @@ namespace PiranhaCMSOak.WebTest
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            //SimpleAspNetTimer.Work = DoSomething;
         }
     }
 }
