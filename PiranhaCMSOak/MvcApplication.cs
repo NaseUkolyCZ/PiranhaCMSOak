@@ -49,7 +49,7 @@ namespace PiranhaCMSOak
                 if (page.IsStartpage)
                     return Url("~/");
                 return Url("~/" + (!Config.PrefixlessPermalinks ?
-                    Piranha.Application.Current.Handlers.GetUrlPrefix("PERMALINK").ToLower() + "/" : "") + page.Permalink.ToLower());
+                    Piranha.App.Instance.Handlers.GetUrlPrefix("PERMALINK").ToLower() + "/" : "") + page.Permalink.ToLower());
             }
             return "";
         }
