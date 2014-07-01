@@ -61,6 +61,24 @@ namespace PiranhaCMSOak
                         !String.IsNullOrEmpty(page.NavigationTitle) ? page.NavigationTitle : page.Title));
         }
 
+        /*
+         * This is what you can have for menu:
+         * 
+         <header class="bg-dark">
+            <div class="navigation-bar dark shadow">
+                <div class="navigation-bar-content container">
+                    <nav class="navigation-bar dark">
+                        <nav class="navigation-bar-content">
+                            @UI.Menu(StopLevel: 1)
+                            <a href="/Blog" class="element"><span class="icon-blogger"></span> Blog</a>
+                        </nav>
+                    </nav>
+                </div>
+            </div>
+        </header>
+         */
+
+
         protected void _Application_Start_CustomMenu()
         {
             Hooks.Menu.RenderLevelStart += new Piranha.Delegates.MenuLevelHook(_RenderLevelStart);
