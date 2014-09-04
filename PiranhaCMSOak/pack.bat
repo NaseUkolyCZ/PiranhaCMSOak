@@ -1,1 +1,1 @@
-nuget pack PiranhaCMSOak.csproj
+..\.nuget\nuget pack PiranhaCMSOak.csproj
